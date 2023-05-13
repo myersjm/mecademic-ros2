@@ -38,8 +38,8 @@ Follow these instructions to set up the virtual environment and prepare the term
 6) `touch ./mecavenv/COLCON_IGNORE` *Ensures colcon doesn't try to build the venv (according to [this link](https://docs.ros.org/en/foxy/How-To-Guides/Using-Python-Packages.html)).*
 7) `python3 -m pip install numpy scipy sympy matplotlib notebook ipywidgets pin meshcat mecademicpy catkin_pkg empy lark` **Install 3rd-party libraries in the virtual environment.** *Note, catkin_pkg, empy, and lark have been added because if you want to use cmake for creating custom services or messages, you need catkin_pkg, and for colcon-building the generated interfaces, you need empy and lark.* *Another important note: if you have used a conda environment before with pinocchio, you may have conda installed pinocchio--but with pip, it has a different install name, `python3 -m pip install pin`. This has been included in the command given.**
 8) `source /opt/ros/humble/setup.bash`
-9) `export PYTHONPATH=$PYTHONPATH:/home/jessicamyers/Jupyter/mecademic-ros2/meca_ws/mecavenv/lib/python3.10/site-packages` **NOTE: This must be updated for your personal full path to the virtual environment's Python site-packages folder (which should be the same after `mecademic-ros2`). Also, change the Python version if you are not using version 3.10 for whatever reason. This export command resolves the error mentioned in step 3, from [this link](https://answers.ros.org/question/371083/how-to-use-python-virtual-environments-with-ros2/?answer=371551#post-id-371551). You can run `echo $PYTHONPATH` to double check the paths.**
-10) `export PYTHONPATH=$PYTHONPATH:/home/jessicamyers/Jupyter/meca-dev/meca_ws/mecavenv/lib/python3.10/site-packages/cmeel.prefix/lib/python3.10/site-packages` **This additional Python path export is required for getting pinocchio to be recognized. You will have to modify the beginning of this path to be specific to your file location.) **
+9) `export PYTHONPATH=$PYTHONPATH:/home/jessicamyers/Jupyter/mecademic-ros2/meca_ws/mecavenv/lib/python3.10/site-packages` **NOTE: This must be updated for your personal full path to the virtual environment's Python site-packages folder (which should be the same after `mecademic-ros2`). Also, change the Python version if you are not using version 3.10 for whatever reason.** *This export command resolves the error mentioned in step 3, from [this link](https://answers.ros.org/question/371083/how-to-use-python-virtual-environments-with-ros2/?answer=371551#post-id-371551). You can run `echo $PYTHONPATH` to double check the paths.*
+10) `export PYTHONPATH=$PYTHONPATH:/home/jessicamyers/Jupyter/meca-dev/meca_ws/mecavenv/lib/python3.10/site-packages/cmeel.prefix/lib/python3.10/site-packages` **This additional Python path export is required for getting pinocchio to be recognized. You will have to modify the beginning of this path to be specific to your file location.)**
 11) Make sure you are in meca_ws, and then run `colcon build` which generates the build, install, and log folders. This should be run any time you modify the code.
 12) `source install/setup.bash` This, too, will be run after you edit the code, since the previous step generates the install folder.
 13) Run whatever you want to run now. We ran `ros2 run meca_controller meca_driver --ros-args -r __ns:=/robot1` (See commands below for updated commands).
@@ -52,7 +52,7 @@ Follow these instructions to set up the virtual environment and prepare the term
 3) `colcon build` **you only have to run this in one of the terminals you are using**
 4) `source install/setup.bash` **in every terminal you open**
 
-in that order.
+in that order. Note that after you edit the code, you will have to repeat steps 3 and 4.
 
 ### Colcon Build Errors
 If you receive an error in colcon build that seems to be unrelated to your code, it could be an incorrect version of some package. I have had this error multiple times so I am documenting it here:
