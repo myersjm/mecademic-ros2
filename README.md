@@ -9,7 +9,7 @@
 - [System Architecture](#5-general-system-architecture)
 - [Important Things to Note About the Code](#6-important-things-to-note-about-the-code)
 - [Walkthroughs]
-- [Guide to ROS2]
+- [Guide to ROS2](https://github.com/myersjm/mecademic-ros2/blob/main/Documentation/Guide-to-ROS2.md)
 - [Useful Resources](#useful-resources)
 
 ## 1) Powering the Robot On/Off
