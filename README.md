@@ -105,6 +105,24 @@ There are some edits that must be made to the code to enable the system to work 
 1) In the **meca_settings.py** file (`meca_ws/src/meca_controller/meca_controller/meca_settings.py`), change the IP addresses for your robots. You can update the namespaces if you want, but that is not required. We chose `/robot1` to refer to the robot on the left when facing in front of the station, and `/robot2` to refer to the robot on the right. The resting state configuration does not have to be changed, as it most likely will never be used--it specifies the assumed resting position of the other robot if it is turned off and not publishing joint angle data when motion planning for the robot that is on. These all are made constants to try to eliminate hardcoding throughout the system. 
 ![image](https://github.com/myersjm/mecademic-ros2/assets/31910744/fc55b746-e315-49f0-8620-57709e684715)
 
+2) In **robot_model.py** (`src/meca_motion_planner/meca_motion_planner/robot_model.py`), you will likely have to edit the robot extrinsic calibration (distance between the robot arms). This is for the purpose of motion planning, collision detection, and visualization. This can be done by editing the `se3_transform_robots` in the constructor, which is composed of a rotation and translation (in our case, the world axis is defined as the halfway point in between the two robots--this is something you likely also will have to change, in step 3 below--basically in this pinocchio model, the robot's URDF is loaded twice, and the models are combined using appendModel. To make them not on top of each other, you must transform the second robot to be on the right side, facing the other, by rotating about this world axis.):
+![image](https://github.com/myersjm/mecademic-ros2/assets/31910744/a593651b-a636-4599-8c1d-64e5e8214ad5)
+
+
+![image](https://github.com/myersjm/mecademic-ros2/assets/31910744/5f0c9817-965b-4d09-9394-47d927519763)
+
+
+
+2) Code that you run meca control
+3) environment urdf
+
+
+6) src\meca_motion_planner\meca_motion_planner\robot_model.py
+
+2) [Optional] In **meca_driver.py** (`meca_ws/src/meca_controller/meca_controller/meca_driver.py`), you may want to edit the rate at which data is obtained from the robot and published to topics.
+![image](https://github.com/myersjm/mecademic-ros2/assets/31910744/f8f8d4a5-48e0-460e-bfc1-64fb60931fa3)
+
+
 
 ## 4) Commands to Run System
 After running the terminal commands to prepare the system (See [Commands to Prepare System (condensed)](#condensing-terminal-commands) in the previous section), you can run the system using the following commands, each in a new terminal *(NOTE that if you are using different namespaces than `/robot1` and `/robot2`, you will have to modify commands 1 and 2)*:
