@@ -3,9 +3,13 @@
 **Table of Contents**
 - [Powering On/Off the Robots](#1-powering-the-robot-onoff)
 - [Installation and Set Up](#2-installation-and-set-up)
+- [Required Modifications to the Code](#3-required-modifications-to-the-code)
 - [Commands to Prepare System (condensed)](#condensing-terminal-commands)
-- [Commands to Run System]
+- [Commands to Run System](#4-commands-to-run-system)
+- [System Architecture](#5-general-system-architecture)
+- [Walkthroughs]
 - [Guide to ROS2]
+- [Useful Resources](#useful-resources)
 
 ## 1) Powering the Robot On/Off
 ### Powering on:
@@ -95,3 +99,32 @@ Finished <<< meca_motion_planner [0.53s]
 
 Summary: 2 packages finished [0.61s]
 ```
+
+## 3) Required Modifications to the Code
+
+
+## 4) Commands to Run System
+After running the terminal commands to prepare the system (See [Commands to Prepare System (condensed)](#condensing-terminal-commands) in the previous section), you can run the system using the following commands, each in a new terminal *(NOTE that if you are using different namespaces than `/robot1` and `/robot2`, you will have to modify commands 1 and 2)*:
+
+1) `ros2 run meca_controller meca_driver --ros-args -r __ns:=/robot1` **launches robot1, establishing connection, services, and data topics**
+2) `ros2 run meca_controller meca_driver --ros-args -r __ns:=/robot2` **launches robot2, establishing connection, services, and data topics**
+3) `ros2 run meca_motion_planner motion_planner` **launches the motion planner, which opens a visualization window and establishes services**
+4) `ros2 run meca_controller meca_control` **currently, this is where you will write code to interact with the robots**
+
+## 5) General System Architecture
+This is a rough depiction of the current system architecture. 
+
+## Useful resources
+
+* https://github.com/Mecademic
+* https://github.com/Mecademic/mecademicpy
+* https://cdn.mecademic.com/uploads/docs/meca500-r3-programming-manual-8-4.pdf
+* https://cdn.mecademic.com/uploads/docs/meca500-r3-user-manual-8-4.pdf
+* https://gepettoweb.laas.fr/doc/stack-of-tasks/pinocchio/devel/doxygen-html/index.html
+* https://github.com/rdeits/meshcat-python
+* https://github.com/stack-of-tasks/pinocchio
+* https://github.com/stack-of-tasks/pinocchio/blob/master/doc/pinocchio_cheat_sheet.pdf
+* https://github.com/stack-of-tasks/pinocchio/tree/master/bindings/python
+* https://github.com/stack-of-tasks/pinocchio/tree/master/bindings/python/pinocchio/visualize
+* https://www.mathworks.com/help/robotics/?s_tid=srchbrcm
+* https://docs.ros.org/en/foxy/Tutorials/Intermediate/URDF/Using-Xacro-to-Clean-Up-a-URDF-File.html
