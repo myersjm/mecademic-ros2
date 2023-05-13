@@ -8,7 +8,7 @@
 - [Commands to Run System](#4-commands-to-run-system)
 - [System Architecture](#5-general-system-architecture)
 - [Important Things to Note About the Code](#6-important-things-to-note-about-the-code)
-- [Walkthroughs]
+- [Video Walkthroughs](#video-walkthroughs)
 - [Guide to ROS2](https://github.com/myersjm/mecademic-ros2/blob/main/Documentation/Guide-to-ROS2.md)
 - [Useful Resources](#useful-resources)
 
@@ -139,6 +139,10 @@ This is a rough depiction of the current system architecture.
 1) Joint angles sent to the **physical robot** should be in **degrees**.
 2) Joint angles sent to the **visualization and motion planner** should be in **radians**. This is the format Pinocchio collision models require. 
 3) There is a lot of documentation describing the available functions within the code itself, appearing before each function -- read it!
+
+## Video Walkthroughs
+### 1) Setting up the repo
+### 2) Demo
 
 ## Useful resources
 
