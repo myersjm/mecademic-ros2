@@ -108,12 +108,11 @@ There are some edits that must be made to the code to enable the system to work 
 2) In **robot_model.py** (`meca_ws/src/meca_motion_planner/meca_motion_planner/robot_model.py`), you will likely have to edit the robot extrinsic calibration (distance between the robot arms). This is for the purpose of motion planning, collision detection, and visualization. This can be done by editing the `se3_transform_robots` in the constructor, which is composed of a rotation and translation (in our case, the world axis is defined as the halfway point in between the two robots--this is something you likely also will have to change, in step 3 below--basically in this pinocchio model, the robot's URDF is loaded twice, and the models are combined using appendModel. To make them not on top of each other, you must transform the second robot to be on the right side, facing the other, by rotating about this world axis.):
 ![image](https://github.com/myersjm/mecademic-ros2/assets/31910744/a593651b-a636-4599-8c1d-64e5e8214ad5)
 
-Note that you will also need to edit the `se3_transform_env` for changing the placement of the environment with respect to the two-arm robot setup. This is here because the environment URDF is loaded as its own pinocchio model, and it has to be merged with the two-arm model that was created. You will have to edit the environment URDF too, seen in step 4 below.
+    Note that you will also need to edit the `se3_transform_env` for changing the placement of the environment with respect to the two-arm robot setup. This is       here because the environment URDF is loaded as its own pinocchio model, and it has to be merged with the two-arm model that was created. You will have to         edit the environment URDF too, seen in step 4 below.
 
 3) In **meca.URDF** (`meca_ws/src/resources/meca/meca.urdf`), you can edit the world frame that is defined between the two robots:
 ![image](https://github.com/myersjm/mecademic-ros2/assets/31910744/5f0c9817-965b-4d09-9394-47d927519763)
-
-You may also need to edit the gripper and gripper finger links/joints in this URDF file if you are using different gripper fingers or a different gripper.
+      You may also need to edit the gripper and gripper finger links/joints in this URDF file if you are using different gripper fingers or a different gripper.
 
 4) In **environment.URDF** (`meca_ws/src/resources/environment/environment.urdf`), you can edit the different obstacles in your robot's environment.
 
