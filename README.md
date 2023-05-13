@@ -131,7 +131,8 @@ After running the terminal commands to prepare the system (See [Commands to Prep
 4) `ros2 run meca_controller meca_control` **currently, this is where you will write code to interact with the robots**
 
 ## 5) General System Architecture
-This is a rough depiction of the current system architecture. 
+This is a rough depiction of the current system architecture.
+![image](https://github.com/myersjm/mecademic-ros2/assets/31910744/897498ac-c959-4a29-9530-03a2717b2faf)
 
 ## 6) Important Things to Note About the Code
 1) Joint angles sent to the **physical robot** should be in **degrees**.
