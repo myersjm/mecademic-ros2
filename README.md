@@ -7,6 +7,7 @@
 - [Commands to Prepare System (condensed)](#condensing-terminal-commands)
 - [Commands to Run System](#4-commands-to-run-system)
 - [System Architecture](#5-general-system-architecture)
+- [Important Things to Note About the Code](#6-important-things-to-note-about-the-code)
 - [Walkthroughs]
 - [Guide to ROS2]
 - [Useful Resources](#useful-resources)
@@ -137,6 +138,7 @@ This is a rough depiction of the current system architecture.
 ## 6) Important Things to Note About the Code
 1) Joint angles sent to the **physical robot** should be in **degrees**.
 2) Joint angles sent to the **visualization and motion planner** should be in **radians**. This is the format Pinocchio collision models require. 
+3) There is a lot of documentation describing the available functions within the code itself, appearing before each function -- read it!
 
 ## Useful resources
 
