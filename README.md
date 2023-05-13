@@ -101,6 +101,9 @@ Summary: 2 packages finished [0.61s]
 ```
 
 ## 3) Required Modifications to the Code
+There are some edits that must be made to the code to enable the system to work for your robots.
+1) In the **meca_settings.py** file (`meca_ws/src/meca_controller/meca_controller/meca_settings.py`), change the IP addresses for your robots. You can update the namespaces if you want, but that is not required. We chose `/robot1` to refer to the robot on the left when facing in front of the station, and `/robot2` to refer to the robot on the right. The resting state configuration does not have to be changed, as it most likely will never be used--it specifies the assumed resting position of the other robot if it is turned off and not publishing joint angle data when motion planning for the robot that is on. These all are made constants to try to eliminate hardcoding throughout the system. 
+![image](https://github.com/myersjm/mecademic-ros2/assets/31910744/fc55b746-e315-49f0-8620-57709e684715)
 
 
 ## 4) Commands to Run System
@@ -113,6 +116,10 @@ After running the terminal commands to prepare the system (See [Commands to Prep
 
 ## 5) General System Architecture
 This is a rough depiction of the current system architecture. 
+
+## 6) Important Things to Note About the Code
+1) Joint angles sent to the **physical robot** should be in **degrees**.
+2) Joint angles sent to the **visualization and motion planner** should be in **radians**. This is the format Pinocchio collision models require. 
 
 ## Useful resources
 
