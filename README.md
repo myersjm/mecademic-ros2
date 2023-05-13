@@ -1,4 +1,5 @@
-# mecademic-ros2
+# Mecademic Robot ROS2 Software (mecademic-ros2)
+This repo contains a system for controlling two Mecademic 500 R3 robot arms within their environment. It is written in Python and makes use of Pinocchio for collision detection, Meshcat for visualization, and MecademicPy for interfacing with the robots.
 
 **Table of Contents**
 - [Powering On/Off the Robots](#1-powering-the-robot-onoff)
