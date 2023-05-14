@@ -1,6 +1,12 @@
 # Mecademic Robot ROS2 Software (mecademic-ros2)
 This repo contains a system for controlling two Mecademic 500 R3 robot arms within their environment. It is written in Python and makes use of Pinocchio for collision detection, Meshcat for visualization, and MecademicPy for interfacing with the robots.
 
+**Important Use Notes / Disclaimers:**
+*Please exercise caution when using the motion planning. There are a couple of issues that have not yet been resolved:*
+1) The wires/cables on the robots that connect the gripper to the robot are not modeled in the collision detection appropriately; the CAD model assumes the wires are rigid, when in reality they are deformable. This can lead to situations in which the wires come into contact with the environment, in addition to the other robot and its wires. The wires could become tangled in a worst case scenario. The best advice for dealing with this at this point in time is to space the robots apart farther, add a larger collision mesh for the gripper to encompass its wires' possible positions better, and make sure to set the joint velocity to be slow.
+
+2) Sometimes the motion planning creates plans that cause the robots to come very close to each other (<1 mm). While the robots do not collide in the visualization, there have been instances where the robots do collide in the real world. My current hypothesis is that, since the robot does not have a collision mesh different from its visual mesh for the gripper, the robots' grippers are allowed to get very close to things, which does not leave much room for error. The next steps here would be either to dilate the gripper CAD stl to generate a collision mesh, or add a tolerance to the collision detection within pinocchio (using its underlying fcl collision pair distance metric). Neither of these has been completed at time of writing. Previewing the motion plan and using a very small joint velocity (<5) is critical while in development.
+
 **Table of Contents**
 - [Powering On/Off the Robots](#1-powering-the-robot-onoff)
 - [Installation and Set Up](#2-installation-and-set-up)
