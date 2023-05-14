@@ -150,7 +150,9 @@ This is a rough depiction of the current system architecture.
 
 ## Video Walkthroughs
 ### Demo
-[![mecademic-ros2-demo-walkthrough](https://github.com/myersjm/mecademic-ros2/assets/31910744/77310775-14ad-4624-af2e-6891046008f0)](https://youtu.be/lyhIp44aYq0)
+<iframe width="560" height="315" src="https://www.youtube.com/embed/lyhIp44aYq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+
+<!-- [![mecademic-ros2-demo-walkthrough](https://github.com/myersjm/mecademic-ros2/assets/31910744/77310775-14ad-4624-af2e-6891046008f0)](https://youtu.be/lyhIp44aYq0) -->
 
 ## Useful resources
 
