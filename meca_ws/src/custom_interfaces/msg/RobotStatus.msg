@@ -1,0 +1,11 @@
+uint8 activation_state
+uint8 brakes_engaged
+uint8 end_of_block_status
+uint8 error_status
+uint8 estop_state
+uint8 homing_state
+uint8 pause_motion_status
+uint8 pstop2_state
+uint8 recovery_mode
+uint8 simulation_mode
+

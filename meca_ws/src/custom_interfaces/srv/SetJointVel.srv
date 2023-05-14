@@ -1,0 +1,3 @@
+float64 joint_vel # in range [.001, 100]
+---
+bool error

@@ -1,0 +1,5 @@
+bool is_robot1
+float64[] start_config
+float64[] goal_config
+---
+MotionPlan motion_plan

@@ -1,0 +1,6 @@
+uint8 error_status
+uint8 holding_part
+uint8 homing_state
+uint8 overload_error
+uint8 present
+uint8 target_pos_reached

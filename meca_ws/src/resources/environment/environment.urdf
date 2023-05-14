@@ -1,0 +1,529 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<robot name="environment">
+  <!-- Everything in the env is defined wrt the center of the breadboard -->
+  <link name="world"/>
+  
+  <!-- Breadboard -->
+  <link name="breadboard">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/MB4590_M.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/MB4590_M.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="world_to_breadboard" type="fixed">
+    <parent link="world"/>
+    <child link="breadboard"/>
+    <origin xyz="0 0 -.0127" rpy="1.570796 0 0"/>
+  </joint>
+  
+  <!-- ====================== TALL RAILS =====================================-->
+  <!-- Middle tall rail in -y dir (closest to us) -->
+  <link name="tall_rail_middle_front">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/1125mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/1125mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <!-- (1.5)*25  in the +x dir, 8.5(25mm) in the -y dir; BUT convert to meters -->
+  <!-- Compute the translation/shift first, then the rotation.-->
+  <!-- object's local frame defined in the middle of obj, so need to-->
+  <!-- do 1125/2 shift upwards in the local frame so not in z middle of breadboard-->
+  <joint name="breadboard_to_tall_rail_middle_front" type="fixed">
+    <parent link="breadboard"/>
+    <child link="tall_rail_middle_front"/>
+    <origin xyz=".0375 .5625 .2125" rpy="1.570796 0 0"/>
+  </joint>
+  
+<!-- Middle tall rail in +y dir wrt world frame. (farthest from us) -->
+  <link name="tall_rail_middle_back">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/1125mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/1125mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="breadboard_to_tall_rail_middle_back" type="fixed">
+    <parent link="breadboard"/>
+    <child link="tall_rail_middle_back"/>
+    <origin xyz=".0375 .5625 -.1875" rpy="1.570796 0 0"/>
+  </joint>
+  
+  <!-- Right (+x wrt world, -y) front tall rail -->
+  <link name="tall_rail_right_front">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/1125mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/1125mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <!-- 17.5(25 mm)) Note-25 mm is spacing between the holes on breadboard. -->
+  <joint name="breadboard_to_tall_rail_right_front" type="fixed">
+    <parent link="breadboard"/>
+    <child link="tall_rail_right_front"/>
+    <origin xyz=".4375 .5625 .2125" rpy="1.570796 0 0"/>
+  </joint>
+  
+    <!-- Left (-x wrt world, -y) front tall rail -->
+  <link name="tall_rail_left_front">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/1125mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/1125mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <!-- 14.5(25 mm)) Note-25 mm is spacing between the holes on breadboard. -->
+  <joint name="breadboard_to_tall_rail_left_front" type="fixed">
+    <parent link="breadboard"/>
+    <child link="tall_rail_left_front"/>
+    <origin xyz="-.3625 .5625 .2125" rpy="1.570796 0 0"/>
+  </joint>
+  
+    <!-- Right (+x wrt world, +y) back tall rail -->
+  <link name="tall_rail_right_back">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/1125mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/1125mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="breadboard_to_tall_rail_right_back" type="fixed">
+    <parent link="breadboard"/>
+    <child link="tall_rail_right_back"/>
+    <origin xyz=".4375 .5625 -.1875" rpy="1.570796 0 0"/>
+  </joint>
+  
+    <!-- Left (-x wrt world, +y) back tall rail -->
+  <link name="tall_rail_left_back">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/1125mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/1125mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="breadboard_to_tall_rail_left_back" type="fixed">
+    <parent link="breadboard"/>
+    <child link="tall_rail_left_back"/>
+    <origin xyz="-.3625 .5625 -.1875" rpy="1.570796 0 0"/>
+  </joint>
+
+  <!-- ================= UPPER RAILS ==================================-->
+  <!-- Left (-x wrt world, +y, +z) short rail -->
+  <link name="left_short_rail">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/375mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/375mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="breadboard_to_left_short_rail" type="fixed">
+    <parent link="breadboard"/>
+    <child link="left_short_rail"/>
+    <origin xyz="-.3625 1.1377 .0125" rpy="0 0 0"/>
+  </joint>
+
+    <!-- Right (+x wrt world, +y, +z) short rail -->
+  <link name="right_short_rail">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/375mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/375mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="breadboard_to_right_short_rail" type="fixed">
+    <parent link="breadboard"/>
+    <child link="right_short_rail"/>
+    <origin xyz=".4375 1.1377 .0125" rpy="0 0 0"/>
+  </joint>
+
+    <!-- Middle (+x wrt world, +y, +z) short rail -->
+  <link name="middle_short_rail">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/375mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/375mm_construction_rail.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="middle_breadboard_to_short_rail" type="fixed">
+    <parent link="breadboard"/>
+    <child link="middle_short_rail"/>
+    <origin xyz=".0375 1.1377 .0125" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ============= CONSTRUCTION CUBES ===================-->
+  <!-- Right back (+x wrt world, +y, -z) construction cube -->
+  <link name="right_construction_back_cube">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/construction_cube.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/construction_cube.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="breadboard_to_construction_back_cube" type="fixed">
+    <parent link="breadboard"/>
+    <child link="right_construction_back_cube"/>
+    <origin xyz=".4875 1.0996 -.1875" rpy="0 0 0"/>
+  </joint>
+
+    <!-- Right (+x wrt world, +y, +z) front construction cube -->
+  <link name="right_construction_front_cube">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/construction_cube.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/construction_cube.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="breadboard_to_right_construction_front_cube" type="fixed">
+    <parent link="breadboard"/>
+    <child link="right_construction_front_cube"/>
+    <origin xyz=".4875 1.0996 .2125" rpy="0 0 0"/>
+  </joint>
+
+    <!-- Middle back (+x wrt world, +y, -z) construction cube -->
+  <link name="middle_construction_back_cube">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/construction_cube.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/construction_cube.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="breadboard_to_construction_middle_cube" type="fixed">
+    <parent link="breadboard"/>
+    <child link="middle_construction_back_cube"/>
+    <origin xyz=".0875 1.0996 -.1875" rpy="0 0 0"/>
+  </joint>
+
+    <!-- Middle (+x wrt world, +y, +z) front construction cube -->
+  <link name="middle_construction_front_cube">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/construction_cube.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/construction_cube.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="breadboard_to_middle_construction_front_cube" type="fixed">
+    <parent link="breadboard"/>
+    <child link="middle_construction_front_cube"/>
+    <origin xyz=".0875 1.0996 .2125" rpy="0 0 0"/>
+  </joint>
+
+    <!-- Left back (-x wrt world, +y, -z) construction cube -->
+  <link name="left_construction_back_cube">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/construction_cube.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/construction_cube.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="breadboard_to_construction_left_cube" type="fixed">
+    <parent link="breadboard"/>
+    <child link="left_construction_back_cube"/>
+    <origin xyz="-.3125 1.0996 -.1875" rpy="0 0 0"/>
+  </joint>
+
+    <!-- Left (-x wrt world, +y, +z) front construction cube -->
+  <link name="left_construction_front_cube">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/construction_cube.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/construction_cube.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="breadboard_to_left_construction_front_cube" type="fixed">
+    <parent link="breadboard"/>
+    <child link="left_construction_front_cube"/>
+    <origin xyz="-.3125 1.0996 .2125" rpy="0 0 0"/>
+  </joint>
+
+  <!-- ===============  POWER SUPPLY BOXES  =====================================-->
+  <!-- Left (-x wrt world, +z) power supply box -->
+  <link name="left_power_box">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/Power supply simple.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/Power supply simple.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <joint name="breadboard_to_left_power_box" type="fixed">
+    <parent link="breadboard"/>
+    <child link="left_power_box"/>
+    <origin xyz="-.3125 0 .175" rpy="0 0 0"/>
+  </joint>
+
+    <!-- Right (+x wrt world, +z) power supply box -->
+  <link name="right_power_box">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/Power supply simple.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <mesh filename="meshes/Power supply simple.stl" scale="0.001 0.001 0.001" />
+      </geometry>
+    </collision>
+  </link>
+  
+  <!-- After rotating, moved half of a space (.5*.025=.0125 meters) in -y dir + .025*10 spaces in -y. -->
+  <joint name="breadboard_to_right_power_box" type="fixed">
+    <parent link="breadboard"/>
+    <child link="right_power_box"/>
+    <origin xyz=".25 0 .2625" rpy="0 -1.570796 0"/>
+  </joint>
+
+  
+  <!-- ======================CABLE PLUGS COLLISION BOXES=====================================-->
+  <!-- A Box representative of the cable plugs exiting the right side of the right power box.-->
+  <link name="right_power_box_right_cable_plugs">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.0625 0.02 0.0625" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.0625 0.02 0.0625" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="breadboard_to_right_power_box_right_cable_plugs" type="fixed">
+    <parent link="breadboard"/>
+    <child link="right_power_box_right_cable_plugs"/>
+    <origin xyz=".4 .05 .175" rpy="0 0 0"/>
+  </joint>
+  
+  <!-- A Box representative of the cable plugs exiting the right side of the left power box.-->
+  <link name="left_power_box_right_cable_plugs">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.0625 0.02 0.0625" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.0625 0.02 0.0625" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="breadboard_to_left_power_box_right_cable_plugs" type="fixed">
+    <parent link="breadboard"/>
+    <child link="left_power_box_right_cable_plugs"/>
+    <origin xyz="-.4 .05 .025" rpy="0 0 0"/>
+  </joint>
+  
+  <!-- A Box representative of the cable plugs exiting the back side of the right power box.-->
+  <link name="right_power_box_back_cable_plugs">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.025 0.02 0.05" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.025 0.02 0.05" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="breadboard_to_right_power_box_back_cable_plugs" type="fixed">
+    <parent link="breadboard"/>
+    <child link="right_power_box_back_cable_plugs"/>
+    <origin xyz=".2806 .025 .1" rpy="0 0 0"/>
+  </joint>
+  
+  <!-- A Box representative of the cable plugs exiting the back of the right robot (robot2).-->
+  <link name="robot2_back_cable_plugs">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.07 0.05 0.04" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.07 0.05 0.04" />
+      </geometry>
+    </collision>
+  </link>
+  <joint name="breadboard_to_robot2_back_cable_plugs" type="fixed">
+    <parent link="breadboard"/>
+    <child link="robot2_back_cable_plugs"/>
+    <origin xyz="0.38125 0.025 0" rpy="0 0 0"/>
+  </joint>
+  <!-- 0.375-->
+  
+  
+  <!-- A Box representative of the cable plugs exiting the back of the left robot (robot1).-->
+  <link name="robot1_back_cable_plugs">
+    <visual>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.07 0.05 0.04" />
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0"/>
+      <geometry>
+        <box size="0.07 0.05 0.04" />
+      </geometry>
+    </collision>
+  </link>
+  <!-- A Box representative of the cable plugs exiting the back of the left robot (robot1).-->
+  <joint name="breadboard_to_robot1_back_cable_plugs" type="fixed">
+    <parent link="breadboard"/>
+    <child link="robot1_back_cable_plugs"/>
+    <origin xyz="-0.30625 0.025 0" rpy="0 0 0"/>
+  </joint>
+  <!-- -0.3125-->
+  
+  </robot>
+  
+  
+  
+

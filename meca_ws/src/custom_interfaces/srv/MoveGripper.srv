@@ -1,0 +1,4 @@
+string command # {"open", "close", "pos"}
+float64 pos # gripper position in mm [0, 5.6]
+---
+bool error

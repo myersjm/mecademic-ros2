@@ -1,0 +1,4 @@
+bool is_robot1
+float64[] two_arm_current_joint_angles # current configuration of the two-robot system; order: [robot1, robot2]
+MotionPlan motion_plan
+---

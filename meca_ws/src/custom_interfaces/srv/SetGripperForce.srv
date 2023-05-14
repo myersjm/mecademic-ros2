@@ -1,0 +1,3 @@
+float64 gripper_force # in range [5, 100]
+---
+bool error
