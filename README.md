@@ -149,8 +149,8 @@ This is a rough depiction of the current system architecture.
 4) You can also access the mecademic web interface to 'jog' the robots to a certain position if you need to get them out of a situation, or are developing code. You can access this by typing into a web browser the IP of the robot.
 
 ## Video Walkthroughs
-### 1) Setting up the repo
-### 2) Demo
+### Demo
+{% include youtube.html id="lyhIp44aYq0" %}
 
 ## Useful resources
 
