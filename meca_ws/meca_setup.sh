@@ -14,7 +14,7 @@ source /opt/ros/humble/setup.bash
 
 ############ EDIT THESE AS NECESSARY: ################
 # Full path to virtual env site-packages folder:
-export PYTHONPATH=$PYTHONPATH:/home/jessicamyers/Jupyter/meca-dev/meca_ws/mecavenv/lib/python3.10/site-packages
+export PYTHONPATH=$PYTHONPATH:/home/jessicamyers/Jupyter/mecademic-ros2/meca_ws/mecavenv/lib/python3.10/site-packages
 
 # Path to cmeel.prefix site-packages folder (for pinocchio):
-export PYTHONPATH=$PYTHONPATH:/home/jessicamyers/Jupyter/meca-dev/meca_ws/mecavenv/lib/python3.10/site-packages/cmeel.prefix/lib/python3.10/site-packages
+export PYTHONPATH=$PYTHONPATH:/home/jessicamyers/Jupyter/mecademic-ros2/meca_ws/mecavenv/lib/python3.10/site-packages/cmeel.prefix/lib/python3.10/site-packages
