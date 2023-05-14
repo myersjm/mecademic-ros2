@@ -146,6 +146,7 @@ This is a rough depiction of the current system architecture.
 1) Joint angles sent to the **physical robot** should be in **degrees**.
 2) Joint angles sent to the **visualization and motion planner** should be in **radians**. This is the format Pinocchio collision models require. 
 3) There is a lot of documentation describing the available functions within the code itself, appearing before each function -- read it!
+4) You can also access the mecademic web interface to 'jog' the robots to a certain position if you need to get them out of a situation, or are developing code. You can access this by typing into a web browser the IP of the robot.
 
 ## Video Walkthroughs
 ### 1) Setting up the repo
