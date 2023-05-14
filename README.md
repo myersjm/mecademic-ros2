@@ -150,9 +150,15 @@ This is a rough depiction of the current system architecture.
 
 ## Video Walkthroughs
 ### Demo
-<iframe width="560" height="315" src="https://www.youtube.com/embed/lyhIp44aYq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<!-- <iframe width="560" height="315" src="https://www.youtube.com/embed/lyhIp44aYq0" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+ -->
+ 
+[![Watch the video](https://img.youtube.com/vi/lyhIp44aYq0/default.jpg)](https://youtu.be/lyhIp44aYq0) 
+<!-- https://github.com/myersjm/mecademic-ros2/assets/31910744/77310775-14ad-4624-af2e-6891046008f0 -->
+[![Watch the video](https://github-production-user-asset-6210df.s3.amazonaws.com/31910744/238167016-77310775-14ad-4624-af2e-6891046008f0.PNG)](https://youtu.be/lyhIp44aYq0) 
 
-<!-- [![mecademic-ros2-demo-walkthrough](https://github.com/myersjm/mecademic-ros2/assets/31910744/77310775-14ad-4624-af2e-6891046008f0)](https://youtu.be/lyhIp44aYq0) -->
+
+[![mecademic-ros2-demo-walkthrough](https://github.com/myersjm/mecademic-ros2/assets/31910744/77310775-14ad-4624-af2e-6891046008f0)](https://youtu.be/lyhIp44aYq0 "mecademic-ros2-demo-walkthrough")
 
 ## Useful resources
 
